@@ -1,15 +1,6 @@
-#!/bin/zsh zsh
+#!/usr/bin/env bash
+#！
 
-echo "Hello, Shell"
+echo "start script"
 
-git pull
 
-if [ ! -d "./sh" ]; then
-    mkdir sh
-fi
-cd sh
-pwd 
-
-for ((i=0; i<10; i++)); do
-	touch test_$i.txt
-done
