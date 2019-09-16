@@ -11,4 +11,5 @@ type Video struct {
 	Info   string
 	URL    string
 	Avatar string
+	UserId int `gorm:"TYPE:int(11);NOT NULL;INDEX"`
 }

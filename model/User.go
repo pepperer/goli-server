@@ -13,6 +13,7 @@ type User struct {
 	Nickname       string
 	Status         string
 	Avatar         string `gorm:"size:1000"`
+	Videos 		   []Video `gorm:"FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID"`
 }
 
 const (

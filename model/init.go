@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	"github.com/jinzhu/gorm"
 	"time"
 
@@ -10,12 +11,14 @@ import (
 var DB *gorm.DB
 
 func Init(conn string) {
+	fmt.Println(conn)
 	db, err := gorm.Open("mysql", conn)
 	if err != nil {
 		panic(err)
 	}
 
 	db.Debug()
+	db.LogMode(true)
 	db.DB().SetMaxIdleConns(20)
 	//打开
 	db.DB().SetMaxOpenConns(100)
