@@ -2,9 +2,10 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"goli/bean"
+	"goli/response"
 )
 
 func Ping(context *gin.Context) {
-	context.JSON(200, bean.BuildResponse("hello world"))
+	context.JSON(200, response.BuildResponse("hello world"))
 }
+

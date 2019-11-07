@@ -1,4 +1,4 @@
-package bean
+package response
 
 import "fmt"
 
@@ -16,15 +16,9 @@ type DataList struct {
 	Total uint        `json:"total"`
 }
 
-// TrackedErrorResponse 有追踪信息的错误响应
-type TrackedErrorResponse struct {
-	Response
-	TrackID string `json:"track_id"`
-}
-
 // BuildListResponse 列表构建器
 
-func BuildListResponse(items interface{}, total uint) Response {
+func BuildListResponse(items []interface{}, total uint) Response {
 	return Response{
 		Data: DataList{
 			Items: items,
@@ -33,10 +27,9 @@ func BuildListResponse(items interface{}, total uint) Response {
 	}
 }
 
-func BuildErrorResponse(err error) Response {
+
+func BuildErrorResponse( err error, ) Response {
 	return Response{
-		Status: 40001,
-		Msg:    "参数错误",
 		Error:  fmt.Sprint(err),
 	}
 }
